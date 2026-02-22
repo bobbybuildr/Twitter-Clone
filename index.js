@@ -90,14 +90,13 @@ function handleReplyBtnClick(replyId) {
         const targetTweetObj = tweetsData.filter(function(tweet) {
             return tweet.uuid === replyId
         })[0]
-        targetTweetObj.replies.unshift(
-            {
+        const replyObj = {
                 handle: user,
                 profilePic: `images/scrimbalogo.png`,
                 tweetText: replyText.value,
                 replyUuid: uuidv4()
             }
-        )
+        targetTweetObj.replies.unshift(replyObj)
 
         render(replyId)
     }
